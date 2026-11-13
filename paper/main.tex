@@ -83,7 +83,7 @@ The proof gives, for every $1\le r\le n-1$, the estimate \eqref{eq:cov} with $\l
 \end{remark}
 
 \begin{remark}
-Theorem~\ref{thm:main} also identifies the covariance with the mean time the two leaves spend in a common clade: if $S$ is the time of the cut that separates $J$ from $J'$, then $\E S=\zeta(2)^{-1}\log(n/r)+O(1)$ (Proposition~\ref{prop:sep} and \eqref{eq:ES}), and $\Cov(D^{(1)}_n,D^{(2)}_n)=2\zeta(3)\zeta(2)^{-2}\,\E S+O(\sqrt{\log n})$ by \eqref{eq:covS}. The error $O(\sqrt{\log n})$ comes from the Cauchy--Schwarz inequality in Section~\ref{sec:proof}; the simulations of Section~\ref{sec:numerics} suggest that the true error in \eqref{eq:cov} and \eqref{eq:var} is $O(1)$, and hence that $\rho(n,r)-(1-\log r/\log n)$ is of order $1/\log n$.
+Theorem~\ref{thm:main} also identifies the covariance with the mean time the two leaves spend in a common clade: if $S$ is the time of the cut that separates $J$ from $J'$, then $\E S=\zeta(2)^{-1}\log(n/r)+O(1)$ (Proposition~\ref{prop:sep} and \eqref{eq:ES}), and $\Cov(D^{(1)}_n,D^{(2)}_n)=2\zeta(3)\zeta(2)^{-2}\,\E S+O(\sqrt{\log n})$ by \eqref{eq:covS}. The error $O(\sqrt{\log n})$ comes from the Cauchy--Schwarz inequality in Section~\ref{sec:proof}; the simulations of Section~\ref{sec:numerics} suggest that the true error in \eqref{eq:cov} and \eqref{eq:var} is $O(1)$, in which case $\rho(n,r)-(1-\log r/\log n)$ would be $O(1/\log n)$.
 \end{remark}
 
 \subsection*{Idea of the proof}
@@ -262,7 +262,7 @@ using $r\le n/2$, $\frac rn\log\frac nr\le1$ and $\log\frac n{n-r}\le\log2$.
 \[
 N_S=\bigl(F^{(1)}_S-F^{(2)}_S\bigr)-\bigl(F^{(1)}_0-F^{(2)}_0\bigr)-\int_0^Se^{(1)}_1(t)\dd t+\int_0^Se^{(2)}_1(t)\dd t .
 \]
-By Lemma~\ref{lem:pair}, given the separation from a clade of size $m$, the cut and the position of the left leaf have the law $w$ of Section~\ref{sec:cut} with $s=m-r$ (or $m-(n-r)$), and $F^{(1)}_S-F^{(2)}_S=G$; hence $\E(F^{(1)}_S-F^{(2)}_S)^2\le C$ by Lemma~\ref{lem:rect}, after averaging over $m$. With the initial bound and Lemma~\ref{lem:errors},
+By Lemma~\ref{lem:pair}, given the separation from a clade of size $m$, the cut and the position of the left leaf have the law $w$ of Section~\ref{sec:cut} with $s=m-r$ (or $m-(n-r)$), and $F^{(1)}_S-F^{(2)}_S=G$; hence $\E[(F^{(1)}_S-F^{(2)}_S)^2]\le C$ by Lemma~\ref{lem:rect}, after averaging over $m$. With the initial bound and Lemma~\ref{lem:errors},
 \begin{equation}\label{eq:NS}
 \E N_S^2\le C .
 \end{equation}
@@ -332,6 +332,41 @@ The paper comes out of Math Brain, an ongoing project on the use of AI systems f
 No data were used. The code and the Lean file are available at\\ \url{https://github.com/yspennstate/beta-splitting-leaf-correlation}.
 
 The paper is part of the Math Brain project, whose public repository is \url{https://github.com/yspennstate/math-brain-public}~\cite{MathBrainRepo}.
+
+\appendix
+\section{Table of notation}\label{app:notation}
+
+\begin{center}
+\small
+\begin{tabular}{@{}lp{0.58\textwidth}l@{}}
+\toprule
+Symbol & Meaning & First used\\
+\midrule
+$n$, $r$ & number of leaves; separation of the two leaves round the cycle, $1\le r\le n/2$ & Section~\ref{sec:intro}\\
+$\lambda_m(i)$ & rate at which a clade of $m$ leaves is cut after its $i$-th leaf & \eqref{eq:rate}\\
+$h_q$ & harmonic number $\sum_{t=1}^q1/t$, $h_0=0$ & \eqref{eq:rate}\\
+$H_j$ & height of leaf $j$: the time at which it becomes a singleton & Section~\ref{sec:intro}\\
+$J$, $J'$ & a uniform leaf and the leaf $r$ places further round the cycle & Section~\ref{sec:intro}\\
+$D_n$, $D^{(1)}_n$, $D^{(2)}_n$ & height of a uniform leaf; heights of $J$ and $J'$ & Section~\ref{sec:intro}\\
+$\sigma^2$ & $2\zeta(3)/\zeta(2)^3$ & Section~\ref{sec:intro}\\
+$\rho(n,r)$ & correlation coefficient of $D^{(1)}_n$ and $D^{(2)}_n$ & Section~\ref{sec:intro}\\
+$\alpha$ & limit of $\log r_n/\log n$ & Section~\ref{sec:intro}\\
+$C$ & an absolute constant, its value changing from line to line & Theorem~\ref{thm:main}\\
+$S$ & time of the cut that separates $J$ from $J'$ & Section~\ref{sec:intro}\\
+$c_1$, $c_2$ & $\zeta(2)$ and $2\zeta(3)$ & Section~\ref{sec:intro}\\
+$\|X\|_2$ & $(\E X^2)^{1/2}$ & Section~\ref{sec:intro}\\
+$F(m,j)$ & positional potential $\log(j(m+1-j)/m)$ of leaf $j$ in a clade of $m$ leaves & Section~\ref{sec:intro}\\
+$d_p$, $e_p$ & drift ($p=1$) and bracket rate ($p=2$) of the potential; $e_p=c_p-d_p$ & Section~\ref{sec:potential}\\
+$M$ & martingale part of the potential along one leaf & Section~\ref{sec:intro}\\
+$Q_t$ & size of the common clade of the two leaves at time $t$ & Section~\ref{sec:pair}\\
+$a_r(m,k)$ & rate at which the common clade of size $m$ passes to size $k$ & Lemma~\ref{lem:pair}\\
+$\delta_r(m)$ & rate of decrease of $\log(Q_t/r)$ at $Q_t=m$, the jump to separation included & Section~\ref{sec:pair}\\
+$G$ & difference of the two potentials at the separating cut & Section~\ref{sec:cut}\\
+$N_t$ & $M^{(1)}_{t\wedge S}-M^{(2)}_{t\wedge S}$ &Section~\ref{sec:proof}\\
+$\beta_t$ & predictable covariation rate of $M^{(1)}$ and $M^{(2)}$ & Section~\ref{sec:proof}\\
+\bottomrule
+\end{tabular}
+\end{center}
 
 \begin{thebibliography}{9}
 
